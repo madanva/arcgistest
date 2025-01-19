@@ -1,16 +1,25 @@
 // src/App.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import LandingPage from './components/LandingPage';
 import ArcGISMap from './ArcGISMap';
-import ChatBot from './components/ChatBot';
 import './App.css';
 
 function App() {
+  const [showMap, setShowMap] = useState(false);
+
+  const handleGetStarted = () => {
+    setShowMap(true);
+  };
+
   return (
     <div className="app-container">
-      <ChatBot />
-      <div className="map-container">
-        <ArcGISMap />
-      </div>
+      {!showMap ? (
+        <LandingPage onGetStarted={handleGetStarted} />
+      ) : (
+        <div className="map-container">
+          <ArcGISMap />
+        </div>
+      )}
     </div>
   );
 }

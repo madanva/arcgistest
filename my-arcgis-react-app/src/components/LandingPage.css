@@ -1,0 +1,142 @@
+.landing-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Create multiple layers of stars */
+.landing-page::before,
+.landing-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.landing-page::before {
+  background-image: 
+    radial-gradient(1px 1px at 10px 10px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 20px 50px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 30px 100px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 150px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 200px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 60px 250px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 70px 300px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80px 350px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 400px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 100px 450px, #fff, rgba(0,0,0,0));
+  background-size: 400px 400px;
+  animation: twinkle 15s infinite linear;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.landing-page::after {
+  background-image: 
+    radial-gradient(1px 1px at 150px 50px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 200px 100px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 250px 150px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 300px 200px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 350px 250px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 400px 300px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 450px 350px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 500px 400px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 550px 450px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 600px 500px, #fff, rgba(0,0,0,0));
+  background-size: 400px 400px;
+  animation: twinkle 20s infinite linear reverse;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@keyframes twinkle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-400px); }
+}
+
+.landing-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-text {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+}
+
+.landing-text h1 {
+  font-size: 4.5rem;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.landing-text p {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+  color: #ccc;
+}
+
+.globe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cta-primary {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  background: #f8f8f8;
+}
+
+/* ArcGIS specific overrides */
+.esri-view {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+.esri-view-surface {
+  background-color: transparent !important;
+}
+
+.esri-view-surface--inset {
+  background-color: transparent !important;
+}
+
+.esri-ui {
+  display: none !important;
+}
